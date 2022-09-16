@@ -1,16 +1,13 @@
 # h_theme_dark_light
+<!-- https://en.wikipedia.org/wiki/Markdown -->
+<!-- https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes  -->
+Disenos para manejar los temas Dark y Light de las Aplicaciones Flutter
 
-A new Flutter project.
+## Appearance Application
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Appearance 1](appearance/1.png)
+![Appearance 2](appearance/2.png)
+![Appearance 3](appearance/3.png)
+![Appearance 4](appearance/4.png)
+![Appearance 5](appearance/5.png) 
+![Appearance 9](appearance/1.gif)
