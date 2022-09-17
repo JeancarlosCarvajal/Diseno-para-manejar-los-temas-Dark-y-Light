@@ -10,6 +10,8 @@ Disenos para manejar los temas Dark y Light de las Aplicaciones Flutter
 ![Appearance 3](appearance/3.png)
 ![Appearance 4](appearance/4.png)
 ![Appearance 5](appearance/5.png) 
+![Appearance 9](appearance/1.gif)
+
+# Responsive Design
 ![Appearance 6](appearance/6.png) 
 ![Appearance 7](appearance/7.png) 
-![Appearance 9](appearance/1.gif)
