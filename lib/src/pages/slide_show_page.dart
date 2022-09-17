@@ -6,22 +6,25 @@ import '../widgets/slide_show.dart';
 
 class SlideShowPage extends StatelessWidget {
    
-  const SlideShowPage({Key? key}) : super(key: key);
-  
+  SlideShowPage({Key? key}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
+    bool isLarge;
+    final size = MediaQuery.of(context).size;
+    isLarge = size.width > 1000 ? true : false;
+
+    List<Widget> widgets = [
+      Expanded(child: _MiSlideShow()),
+      Expanded(child: _MiSlideShow()), 
+    ];
+
     return Scaffold(
       backgroundColor: Colors.purple,
-      body: SingleChildScrollView(
-        child: Column(  
-          children: const [
-            _MiSlideShow(),
-            _MiSlideShow(),
-            _MiSlideShow(),
-            _MiSlideShow(), 
-          ],
-        ),
-      ), 
+      body: isLarge
+        ? Row(children: widgets) 
+        : Column(children: widgets), 
     );
   }
 }
@@ -32,11 +35,8 @@ class _MiSlideShow extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    // print('jean: ${size.height}');    
-    return SizedBox(
-      height: size.height*0.5,
+  Widget build(BuildContext context) {  
+    return SizedBox( 
       child: SlideShow(
         bulletPrimario: 15,
         bulletSecundario: 12,

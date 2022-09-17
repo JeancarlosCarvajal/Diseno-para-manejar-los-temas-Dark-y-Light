@@ -1,25 +1,52 @@
-import 'package:flutter/material.dart';
-import 'package:h_theme_dark_light/src/models/layout_resposive_model.dart';
+import 'package:flutter/material.dart'; 
 
 import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../models/layout_resposive_model.dart';
 import '../routes/routes.dart';
 import '../theme/theme.dart';
+import 'slide_show_page.dart';
  
-class LauncherPage extends StatelessWidget {
-  const LauncherPage({Key? key}) : super(key: key);
+class LauncherTabletaPage extends StatelessWidget {
+  const LauncherTabletaPage({Key? key}) : super(key: key);
 
-
-  @override
+  @override 
   Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+    final layoutModel = Provider.of<LayoutResponsiveModel>(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Diseños en Flutter'),
+        title: const Text('Diseños en Flutter Tableta'),
       ),
       drawer: _MenuPrincipal(),
-      body: _ListaOpciones()
+      body: Row(
+        children: [
+
+          SizedBox(
+            width: 300,
+            height: double.infinity,
+            child: _ListaOpciones(),
+          ),
+
+          Container(
+            height: double.infinity, 
+            width: 4.0, 
+            color: theme.currentTheme.dividerColor,
+          ),
+
+          Expanded(
+            child:  layoutModel.currentPage,
+          )
+
+        ],
+      ),
+
+
+
+      // body: _ListaOpciones(),
    );
   }
 
@@ -31,6 +58,8 @@ class _ListaOpciones extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+    final layoutModel = Provider.of<LayoutResponsiveModel>(context);
+
 
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
@@ -43,7 +72,8 @@ class _ListaOpciones extends StatelessWidget {
         title: Text( pageRoutes[i].titulo ),
         trailing: Icon( Icons.chevron_right, color: appTheme.colorScheme.secondary ),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> pageRoutes[i].page )); 
+          // Navigator.push(context, MaterialPageRoute(builder: (context)=> pageRoutes[i].page ));  // lo calle por hacerlo responsive 
+          layoutModel.currentPage = pageRoutes[i].page;
         },
 
       ), 

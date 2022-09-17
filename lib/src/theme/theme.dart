@@ -11,8 +11,8 @@ class ThemeChanger with ChangeNotifier {
   bool get customTheme => this._customTheme;
   ThemeData get currentTheme => this._currentTheme;
 
-  // final Color darkColor = Colors.pink;
-  final Color darkColor = Colors.white;
+  final Color darkColor = Colors.pink;
+  // final Color darkColor = Colors.white;
   final Color lightColor = const Color(0xff48A0EB);
 
 
@@ -31,6 +31,7 @@ class ThemeChanger with ChangeNotifier {
         _customTheme = false;
         _currentTheme = ThemeData.dark().copyWith(
           // accentColor: darkColor, // se actulizo a colorScheme.secondary
+          dividerColor: Colors.grey,
           colorScheme:  _colorSchemeDark(),
         );
       break;
@@ -56,6 +57,7 @@ class ThemeChanger with ChangeNotifier {
     if ( value ) {
       _currentTheme = ThemeData.dark().copyWith(
         // accentColor: darkColor // cambio a colorScheme.secondary
+        dividerColor: Colors.grey,
         colorScheme: _colorSchemeDark(),
       );
     } else {
@@ -77,6 +79,7 @@ class ThemeChanger with ChangeNotifier {
           textTheme: const TextTheme(
             bodyLarge: TextStyle( color: Colors.white )
           ),
+          dividerColor: Colors.grey,
           // textTheme.body1.color
           colorScheme: ColorScheme(
             brightness: Brightness.dark,

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 
 
+import '../models/layout_resposive_model.dart';
 import '../theme/theme.dart';
 import 'navegacion_page.dart';
 import 'twitter_page.dart';
@@ -19,6 +20,8 @@ class Pagina1Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final layoutModel = Provider.of<LayoutResponsiveModel>(context);
+
     return Scaffold(
       
       appBar: AppBar(
@@ -32,8 +35,10 @@ class Pagina1Page extends StatelessWidget {
 
           IconButton(
             icon: FaIcon( FontAwesomeIcons.twitter ),
-            onPressed: (){
-              Navigator.push(context,  MaterialPageRoute(builder: (BuildContext context) => const TwitterPage() )  );
+            onPressed: (){ 
+              layoutModel.isPhone 
+                ? Navigator.push(context,  MaterialPageRoute(builder: (BuildContext context) => const TwitterPage() )  )
+                : layoutModel.currentPage = const TwitterPage();
             },
           ),
 
@@ -41,8 +46,10 @@ class Pagina1Page extends StatelessWidget {
             from: 100,
             child: IconButton(
               icon: Icon( Icons.navigate_next ),
-              onPressed: (){
-                Navigator.push(context,  CupertinoPageRoute(builder: (BuildContext context) => const Pagina1Page() )  );
+              onPressed: (){ 
+              layoutModel.isPhone 
+                ? Navigator.push(context,  CupertinoPageRoute(builder: (BuildContext context) => const Pagina1Page() )  )
+                : layoutModel.currentPage = const Pagina1Page();
               },
             ),
           ),
@@ -54,8 +61,10 @@ class Pagina1Page extends StatelessWidget {
       floatingActionButton: ElasticInRight(
         child: FloatingActionButton(
           child: FaIcon( FontAwesomeIcons.play ),
-          onPressed: (){
-            Navigator.push( context,  MaterialPageRoute( builder: (BuildContext context) => const NavegacionPage() ) );
+          onPressed: (){ 
+            layoutModel.isPhone 
+              ? Navigator.push(context,  MaterialPageRoute(builder: (BuildContext context) => const NavegacionPage() )  )
+              : layoutModel.currentPage = const NavegacionPage();
           }
         ),
       ),
