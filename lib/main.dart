@@ -33,9 +33,10 @@ class MyApp extends StatelessWidget {
           print('jean: $orientation');
           final size = MediaQuery.of(context).size;
 
-          if(size.width > 500) layOutModel.isPhone = false;
+          if(size.width > 600) layOutModel.isPhone = false;
+          print('jean: ${size.width}');
           
-          return size.width > 500 
+          return size.width > 600 
             ? LauncherTabletaPage()
             : LauncherPage();
 
